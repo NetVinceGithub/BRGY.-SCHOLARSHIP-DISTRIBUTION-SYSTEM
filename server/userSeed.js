@@ -3,24 +3,30 @@ import User from './models/User.js';
 import bcrypt from 'bcrypt';
 
 const userRegister = async () => {
-  await connectToDatabase(); 
+  await connectToDatabase();
 
   try {
-    const hashPassword = await bcrypt.hash("capitol", 10);
-
-    // Create admin user
-    const newUser = await User.create({
-      name: "Admin",
-      email: "admin@gmail.com",
-      password: hashPassword,
+    const hashPassword1 = await bcrypt.hash("capitol", 10);
+    await User.create({
+      name: "Capitol",
+      email: "capitol@gmail.com",
+      password: hashPassword1,
       role: "capitol",
     });
+    console.log("Capitol user created successfully.");
 
-    console.log("user created successfully:", newUser.toJSON());
+    const hashPassword2 = await bcrypt.hash("barangay", 10);
+    await User.create({
+      name: "Barangay",
+      email: "barangay@gmail.com",
+      password: hashPassword2,
+      role: "barangay",
+    });
+    console.log("Barangay user created successfully.");
   } catch (error) {
-    console.error("Error inserting admin user:", error);
+    console.error("Error inserting users:", error);
   } finally {
-    await sequelize.close(); // Close DB connection after seeding
+    await sequelize.close(); 
   }
 };
 

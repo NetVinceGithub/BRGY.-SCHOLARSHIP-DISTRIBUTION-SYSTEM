@@ -23,9 +23,6 @@ const User = sequelize.define('User', {
     type: DataTypes.ENUM('capitol', 'barangay'),
     allowNull: false
   },
-  profileImage: {
-    type: DataTypes.STRING
-  },
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW
