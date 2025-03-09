@@ -22,7 +22,7 @@ const BarangayDashboard = () => {
           <div className="step">2. Fill out the scholarship application form.</div>
           <div className="step">3. Upload required documents.</div>
           <div className="step">4. Wait for verification and approval.</div>
-          <div className="step">5. Receive scholarship funds via GCash.</div>
+          <div className="step">5. Recmhkmjkgjhkgjhghjgeive scholarship funds via GCash.</div>
         </section>
         <section className="section faq">
           <h2>Frequently Asked Questions</h2>
