@@ -50,7 +50,7 @@ const Login = () => {
     >
       <div >
         <h2 >
-          Payroll Management Login
+          Scholarship Management Login
         </h2>
         <hr />
 
