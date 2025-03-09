@@ -1,0 +1,85 @@
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.header {
+  background: #b30000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.hero {
+  background: url("batangas-provincial-hall.jpg") center/cover no-repeat;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 42px;
+  font-weight: bold;
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.7);
+}
+
+.button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: white;
+  color: #b30000;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background: #ffdddd;
+}
+
+.container {
+  width: 80%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+}
+
+.section {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.section h2 {
+  color: #b30000;
+  font-size: 26px;
+}
+
+.step,
+.faq-item {
+  background: #fff;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.contact p {
+  font-size: 18px;
+}
+
+.footer {
+  background: #b30000;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+  font-size: 16px;
+}
