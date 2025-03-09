@@ -1,6 +1,8 @@
 import React from 'react'
 import { useAuth } from '../context/authContext';
 import { Outlet } from 'react-router-dom';
+import './style.css';
+
 
 const BarangayDashboard = () => {
   const {user} = useAuth() 
