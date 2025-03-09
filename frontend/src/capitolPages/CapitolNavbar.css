@@ -1,0 +1,80 @@
+.capitol-navbar {
+  position: fixed;
+  top: 0;
+  left: 250px; /* Adjust based on sidebar width */
+  width: calc(100% - 250px);
+  height: 50px;
+  background-color: #fdf1e6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #1e4d3e;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+}
+
+.capitol-navbar.collapsed {
+  left: 50px;
+  width: calc(100% - 50px);
+}
+
+
+.capitol-navbar.collapsed {
+  left: 0;
+  width: calc(100% - 50px);
+}
+
+/* Navbar Items */
+.capitol-navbar .nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.capitol-navbar .menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+/* Show Hamburger Menu on Mobile */
+@media (max-width: 768px) {
+  .capitol-navbar {
+    left: 0;
+    width: 100%;
+  }
+  
+  .capitol-navbar .menu-icon {
+    display: block;
+  }
+}
+
+/* Welcome Text */
+.capitol-navbar .welcome-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Date & Time */
+.capitol-navbar .date-time {
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.capitol-navbar .date-time .time {
+  font-size: 20px;
+  font-weight: bold;
+}

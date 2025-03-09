@@ -5,6 +5,10 @@ import PrivateRoutes from "./utils/PrivateRoutes";
 import RoleBaseRoutes from "./utils/RoleBaseRoutes";
 import CapitolDashboard from "./pages/CapitolDashboard";
 import BarangayDashboard from "./barangayPages/BarangayDashboard";
+import Overview from "./capitolPages/Overview";
+import Barangays from "./capitolPages/Barangays";
+import Scholars from "./capitolPages/Scholars";
+import Information from "./capitolPages/Information";
 
 function App() {
   return (
@@ -26,7 +30,14 @@ function App() {
               </RoleBaseRoutes>
             </PrivateRoutes>
           }
-        />
+        >
+          <Route index element={<Overview />} />
+          <Route path="overview" element={<Overview />} />
+          <Route path="barangays" element={<Barangays />} />
+          <Route path="scholars" element={<Scholars />} />
+          <Route path="information" element={<Information />} />
+
+        </Route>
       </Routes>
     </Router>
   );
