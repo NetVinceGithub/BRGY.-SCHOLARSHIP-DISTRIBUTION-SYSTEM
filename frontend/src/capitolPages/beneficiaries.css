@@ -1,0 +1,49 @@
+/* Beneficiaries Page Styles */
+.beneficiaries-container {
+    display: flex;
+    height: 100vh;
+    background-color: #F6EEDB;
+  }
+  
+  .sidebar {
+    width: 25%;
+    background-color: #1E4D3A;
+    color: white;
+    padding: 20px;
+  }
+  
+  .sidebar h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .sidebar nav a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .sidebar nav a.active {
+    background-color: #4E7E4A;
+    border-radius: 5px;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .beneficiaries-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .beneficiaries-table th, .beneficiaries-table td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+  

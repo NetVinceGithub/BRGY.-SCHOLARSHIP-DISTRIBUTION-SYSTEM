@@ -1,0 +1,93 @@
+/* styles.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f1e4;
+  margin: 0;
+  padding: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+aside {
+  width: 25%;
+  background-color: #184d47;
+  color: white;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+aside h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+aside ul {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+aside li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+aside li:hover, .bg-green-700 {
+  background-color: #2d6a4f;
+  border-radius: 5px;
+}
+
+main {
+  width: 75%;
+  padding: 20px;
+  background-color: #fefae0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #2d6a4f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #1b4332;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #95d5b2;
+}
