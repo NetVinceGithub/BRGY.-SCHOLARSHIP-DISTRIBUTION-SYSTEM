@@ -27,7 +27,8 @@ const Login = () => {
         if (response.data.user.role === "capitol") {
           navigate('/capitol-dashboard');
         } else {
-          navigate('/barangay-dashboard'); 
+          navigate('/barangay/dashboard');
+
         }
       }
     } catch (error) {

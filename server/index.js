@@ -3,6 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import userRouter from "./routes/users.js";
+import beneficiaryRouter from './routes/beneficiaries.js';
 import sequelize from "./db/db.js"; // Sequelize connection
 
 dotenv.config(); // Load environment variables
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true })); // Parses URL-encoded data
 // Routes
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
+app.use("/api/beneficiaries", beneficiaryRouter);
 
 // Start Server
 app.listen(PORT, () => {
