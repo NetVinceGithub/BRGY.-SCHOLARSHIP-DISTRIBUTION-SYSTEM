@@ -1,0 +1,49 @@
+.beneficiaries-container {
+  padding: 30px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  margin-left: 250px;
+  margin-top: 90px;
+  box-sizing: border-box;
+}
+
+.beneficiaries-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1B4D3E;
+  margin-bottom: 20px;
+}
+
+.beneficiaries-table-wrapper {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 100%;      /* ✅ prevent overflow */
+  height: auto;
+  overflow-x: hidden;   /* ✅ disable horizontal scroll */
+  overflow-y: auto;     /* optional: vertical scroll */
+}
+
+
+.beneficiaries-table {
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+
+/* Optional: Styling the DataTable if using react-data-table-component */
+.rdta-table {
+  border: none;
+}
+
+.rdta-table thead {
+  background-color: #1B4D3E;
+  color: white;
+}
+
+.rdta-table tbody tr:hover {
+  background-color: #eafaf0;
+  cursor: pointer;
+}
