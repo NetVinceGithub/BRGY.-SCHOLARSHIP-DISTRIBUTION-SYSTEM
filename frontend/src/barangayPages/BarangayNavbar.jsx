@@ -32,7 +32,8 @@ const BarangayNavBar = ({ toggleSidebar, isSidebarOpen }) => {
   }, []);
 
   return (
-    <nav className={`capitol-navbar ${isSidebarOpen ? '' : 'collapsed'}`}>
+    <div className='barangay-container'>
+        <nav className={`barangay-navbar ${isSidebarOpen ? '' : 'collapsed'}`}>
       <div className="nav-left">
         <button className="menu-icon" onClick={toggleSidebar}>
           <FaBars />
@@ -45,6 +46,8 @@ const BarangayNavBar = ({ toggleSidebar, isSidebarOpen }) => {
         <p className="time">{time}</p>
       </div>
     </nav>
+    </div>
+    
   );
 };
 

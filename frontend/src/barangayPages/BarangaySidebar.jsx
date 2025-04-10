@@ -27,10 +27,11 @@ const BarangaySidebar = () => {
         <NavLink to="/barangay/landing-page" className="sidebar-link">Landing Page</NavLink>
       </div>
 
-      <button onClick={handleLogout} className="logout-btn">
-        Logout
-      </button>
+      {/* Move logout outside of sidebar-menu */}
+      <button onClick={handleLogout} className="logout-btn">Logout</button>
     </aside>
+
+
   );
 };
 

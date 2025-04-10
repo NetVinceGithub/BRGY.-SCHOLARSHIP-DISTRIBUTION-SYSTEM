@@ -1,7 +1,6 @@
 import React from 'react'
-import { useAuth } from '../context/authContext';
 import { Outlet } from 'react-router-dom';
-import './style.css';
+import './BarangayDashboard.css';
 import BarangayNavBar from './BarangayNavbar';
 import BarangaySidebar from './BarangaySidebar';
 

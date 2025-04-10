@@ -1,7 +1,7 @@
 /* Login.css */
 body {
   font-family: Arial, sans-serif;
-  background: url('/path-to-your-image.jpg') no-repeat center center fixed;
+  background: url("../src/barangayPages/batangas-provincial-hall.jpg") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -9,6 +9,7 @@ body {
   height: 100vh;
   margin: 0;
 }
+
 
 .login-container {
   background: rgba(255, 255, 255, 0.9);
