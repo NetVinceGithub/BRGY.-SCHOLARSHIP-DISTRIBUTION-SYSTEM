@@ -8,7 +8,6 @@ import sequelize from "./db/db.js"; // Sequelize connection
 
 dotenv.config(); // Load environment variables
 
-// Sync Database
 sequelize.sync({ alter: false }) 
   .then(() => console.log("MySQL Database Synced"))
   .catch((err) => console.error("MySQL Connection Error:", err));
@@ -16,17 +15,24 @@ sequelize.sync({ alter: false })
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware
 app.use(cors());
-app.use(express.json()); // Parses incoming JSON request bodies
-app.use(express.urlencoded({ extended: true })); // Parses URL-encoded data
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: true })); 
 
-// Routes
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/beneficiaries", beneficiaryRouter);
 
-// Start Server
+app.get('/test', (req, res) => {
+  res.status(200).json({ message: 'Server is working' });
+});
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+
 });

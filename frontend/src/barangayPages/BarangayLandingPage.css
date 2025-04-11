@@ -29,10 +29,13 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
+  background: white;
   font-size: 42px;
   font-weight: bold;
   z-index: 1;
   color: black;
+  background: rgba(255, 255, 255, 0.9);
+
 }
 
 

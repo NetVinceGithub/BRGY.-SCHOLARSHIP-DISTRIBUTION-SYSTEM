@@ -1,17 +1,9 @@
-.beneficiaries-container {
-  padding: 30px;
-  background-color: #f9f9f9;
-  min-height: 100vh;
-  margin-left: 250px;
-  margin-top: 90px;
-  box-sizing: border-box;
-}
+
 
 .beneficiaries-title {
   font-size: 28px;
   font-weight: 700;
-  color: #1B4D3E;
-  margin-bottom: 20px;
+  color: black;
 }
 
 .beneficiaries-table-wrapper {
@@ -19,11 +11,12 @@
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  width: 100%;
-  max-width: 100%;      /* ✅ prevent overflow */
+  max-width: 100%;     
   height: auto;
-  overflow-x: hidden;   /* ✅ disable horizontal scroll */
-  overflow-y: auto;     /* optional: vertical scroll */
+  overflow-x: hidden; 
+  overflow-y: auto;    
+  width:1100px;
+  margin:auto;
 }
 
 
@@ -46,4 +39,71 @@
 .rdta-table tbody tr:hover {
   background-color: #eafaf0;
   cursor: pointer;
+}
+
+.beneficiaries-html-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.beneficiaries-html-table th,
+.beneficiaries-html-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.beneficiaries-html-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.beneficiaries-html-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.beneficiaries-html-table tr:hover {
+  background-color: #eaeaea;
+}
+
+.beneficiaries-container {
+  padding-bottom: 100px;
+  height:200px;
+  margin-left:170px;;
+  background: rgba(255, 255, 255, 0.9);
+  width:1200px;
+  border-radius: 12px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: #fff;
+  padding: 20px;
+  width: 400px;
+  border-radius: 10px;
+}
+
+.modal input {
+  display: block;
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 8px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
