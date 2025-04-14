@@ -1,0 +1,229 @@
+.scholars-container {
+  backdrop-filter: blur(8px); /* blur effect */
+  background: rgba(255, 255, 255, 0.6);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.scholars-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #1B4D3E;
+  margin-bottom: 20px;
+}
+
+.scholars-table-wrapper {
+  background-color: #fff;
+  padding:10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.scholars-html-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.scholars-html-table th,
+.scholars-html-table td {
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.scholars-html-tableth {
+  color: black;
+}
+
+.scholars-html-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.scholars-html-table tr:hover {
+  background-color: #eef7f2;
+}
+
+.scholars-html-table button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.scholars-html-table button:hover {
+  color: white;
+}
+
+/* Modal Styles */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  padding: 25px;
+  width: 400px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.modal h3 {
+  margin-bottom: 15px;
+}
+
+.modal input {
+  display: block;
+  margin-bottom: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  color: black;
+  background-color: forestgreen;
+}
+
+.modal-actions button:last-child {
+  background-color: red;
+}
+
+/* Transfer Button */
+.scholars-container button {
+  color: black;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  float: right;
+  transition: background-color 0.3s;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .scholars-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .modal {
+    width: 90%;
+  }
+
+  .scholars-container button {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.transfer-btn {
+  background-color: rgb(4, 105, 4);
+  color: black;
+  width: 100px;
+}
+
+.transfer-btn:hover {
+  background-color: rgb(0, 238, 167);
+  color: black;
+  width: 100px;
+}
+
+button {
+  background-color: #ccc;
+}
+
+.edit-btn:hover {
+  background-color: rgb(29, 29, 241);
+}
+
+.delete-btn:hover {
+  background-color: red;
+}
+
+/* Search Bar Styles */
+.search-container {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 0 12px;
+  max-width: 300px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.search-icon {
+  color: #1B4D3E;
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.search-bar input {
+  border: none;
+  background: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-bar input::placeholder {
+  color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .search-bar {
+    max-width: 100%;
+  }
+}

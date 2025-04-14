@@ -1,6 +1,8 @@
 import React, { useState } from 'react' 
 import axios from 'axios';
 import './Dashboard.css';
+import { useAuth } from '../context/authContext';
+
 
 const Dashboard = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +14,9 @@ const Dashboard = () => {
     studentCode:''
   });
 
+const {user} = useAuth();
+
+
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value});
   }
@@ -19,25 +24,32 @@ const Dashboard = () => {
  
 
   const handleSubmit = async (e) => {
-     e.preventDefault();
-     try{
-      const response = await axios.post("http://localhost:5000/api/beneficiaries/add-beneficiary", formData);
-
-      console.log("beneficiary added: ",response.data);
-
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/beneficiaries/add-beneficiary",
+        {
+          ...formData,
+          userId: user?.id, // 👈 use user.id from context
+        }
+      );
+  
+      console.log("beneficiary added: ", response.data);
+  
       setFormData({
         name: '',
         email: '',
-        gcashNumber:'',
+        gcashNumber: '',
         gcashName: '',
         school: '',
         studentCode: ''
       });
-
-     } catch (error) {
-      console.error("Error adding beneficiary");
-     }
-  }
+  
+    } catch (error) {
+      console.error("Error adding beneficiary:", error);
+    }
+  };
+  
 
 
   return (
