@@ -4,22 +4,28 @@ import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import userRouter from "./routes/users.js";
 import beneficiaryRouter from './routes/beneficiaries.js';
-import barangayRouter from './routes/barangay.js'
-import capitolRouter from './routes/capitol.js'
+import barangayRouter from './routes/barangay.js';
+import capitolRouter from './routes/capitol.js';
 import sequelize from "./db/db.js"; // Sequelize connection
 
 dotenv.config(); // Load environment variables
 
-sequelize.sync({ alter: false }) 
+sequelize.sync({ alter: true }) // Modify the schema as needed
   .then(() => console.log("MySQL Database Synced"))
   .catch((err) => console.error("MySQL Connection Error:", err));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true })); 
+// CORS configuration
+app.use(cors({
+  origin: 'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', // Your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
@@ -38,5 +44,4 @@ app.use((req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-
 });
