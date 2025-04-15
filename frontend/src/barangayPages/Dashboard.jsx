@@ -27,7 +27,7 @@ const {user} = useAuth();
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/beneficiaries/add-beneficiary",
+        "https://brgy-scholarship-distribution-system-11.onrender.com/api/beneficiaries/add-beneficiary",
         {
           ...formData,
           userId: user?.id, // 👈 use user.id from context
