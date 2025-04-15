@@ -82,9 +82,11 @@ export const releaseScholarship = async (req, res) => {
         to: scholar.email,
         subject: "Scholarship Assistance Released",
         html: `
+          <p><img src="https://drive.google.com/uc?export=view&id=1uZyFwSCViUtEH7pcMbYK1lotMcEoTUB8" width="120" /></p>
           <p>Dear <strong>${scholar.name}</strong>,</p>
           <p>We are pleased to inform you that your <strong>scholarship assistance</strong> has been successfully released.</p>
           <p>Kindly check your GCash account (${scholar.gcashNumber}) registered under the name <strong>${scholar.gcashName}</strong>.</p>
+          <p>If problems persist contact your barangay coordinator</p>
           <br/>
           <p>Thank you and keep striving for excellence!</p>
           <p>- Scholarship Office</p>
@@ -94,7 +96,9 @@ export const releaseScholarship = async (req, res) => {
     });
 
     await Promise.all(sendEmails);
+    await Capitol.destroy({where: {}});
 
+    console.log("Sent all the emails and all records are destroyed");
     res.status(200).json({
       success: true,
       message: `Emails sent to ${scholars.length} scholars`

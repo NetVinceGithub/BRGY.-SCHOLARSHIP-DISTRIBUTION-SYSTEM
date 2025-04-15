@@ -34,6 +34,8 @@ const Scholars = () => {
     } catch (error) {
       console.error('Error releasing scholar', error)
     }
+
+    fetchScholars();
   }
 
   return (
