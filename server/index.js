@@ -17,26 +17,22 @@ sequelize.sync({ alter: true }) // Modify the schema as needed
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors({
-  origin: 'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
-  allowedHeaders: ['Content-Type', 'Authorization'], 
-}));
-
+// CORS middleware: handle both production (Vercel) and local development (localhost)
 app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
       'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', // Vercel frontend
       'http://localhost:5173', // Local development frontend
     ];
-    if(allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
+    // Check if the request's origin matches any allowed origin
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true); // Allow the request
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS')); // Reject the request
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders:['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
 app.use(express.json());
