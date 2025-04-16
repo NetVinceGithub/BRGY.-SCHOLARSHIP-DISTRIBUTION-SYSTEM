@@ -6,9 +6,9 @@ import userRouter from "./routes/users.js";
 import beneficiaryRouter from './routes/beneficiaries.js';
 import barangayRouter from './routes/barangay.js';
 import capitolRouter from './routes/capitol.js';
-import sequelize from "./db/db.js"; // Sequelize connection
+import sequelize from "./db/db.js";
 
-dotenv.config(); // Load environment variables
+dotenv.config(); 
 
 sequelize.sync({ alter: true }) // Modify the schema as needed
   .then(() => console.log("MySQL Database Synced"))
@@ -17,11 +17,10 @@ sequelize.sync({ alter: true }) // Modify the schema as needed
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS configuration
 app.use(cors({
-  origin: 'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', // Your frontend domain
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+  origin: 'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  allowedHeaders: ['Content-Type', 'Authorization'], 
 }));
 
 app.use(express.json());
