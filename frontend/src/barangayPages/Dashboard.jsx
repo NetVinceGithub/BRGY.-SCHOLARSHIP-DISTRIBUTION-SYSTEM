@@ -26,11 +26,14 @@ const {user} = useAuth();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("Current user", user);
+      console.log("Submitting:", { ...formData, userId: user?.id });
+
       const response = await axios.post(
-        "https://brgy-scholarship-distribution-system-11.onrender.com/api/beneficiaries/add-beneficiary",
+        "http://localhost:5000/api/beneficiaries/add-beneficiary",
         {
           ...formData,
-          userId: user?.id, // 👈 use user.id from context
+          userId: user?.id, 
         }
       );
   

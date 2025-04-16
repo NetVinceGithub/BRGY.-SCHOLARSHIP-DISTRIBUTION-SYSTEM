@@ -56,3 +56,7 @@ button[type="submit"]:hover {
   margin-top: 100px;
   
 }
+
+input {
+  background-color: white;
+}

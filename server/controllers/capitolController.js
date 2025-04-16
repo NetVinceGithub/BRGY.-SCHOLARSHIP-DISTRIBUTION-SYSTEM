@@ -65,7 +65,7 @@ export const releaseScholarship = async (req, res) => {
     const scholars = await Capitol.findAll();
 
     if (!scholars.length) {
-      return res.status(404).json({ success: false, message: 'No scholars to release' });
+      return res.status(404).json({ success: false, message: 'No scholars to release' });z
     }
 
     const transporter = nodemailer.createTransport({

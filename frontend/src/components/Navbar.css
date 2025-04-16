@@ -7,13 +7,11 @@
   display: flex;
   justify-content: center; 
   align-items: center;
-  background-color: #1e40af;
-  backdrop-filter: blur(50px);
+  background-color: white;
 
-  padding: 1rem 2rem;
-  color: white;
+  padding: 0rem 2rem;
+  color: black;
   width: 100%;
-  height: 60px;
 }
 
 .navbar-spacer {
@@ -44,7 +42,7 @@
   font-weight: 500;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
-  color:white;
+  color:black;
   font-size:x-large;
   font-weight: bold;
 }

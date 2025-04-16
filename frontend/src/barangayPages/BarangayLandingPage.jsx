@@ -1,16 +1,20 @@
 import React from 'react'
-import { useAuth } from '../context/authContext';
 import { Outlet } from 'react-router-dom';
-import './BarangayLandingPage.css';
 import Navbar from '../components/Navbar';
+import Footer from './Footer';
+import './BarangayLandingPage.css';
+import Body from './Body';
 
 const BarangayLandingPage = () => {
-
   return (
-    <div >
+    <div className="page-container">
       <Navbar />
-      <div className='page-content'>
-      </div>
+      <main className="content-wrap">
+        <Body />
+        <Outlet /> 
+       
+      </main>
+      <Footer />
     </div>
   );
 };

@@ -21,7 +21,7 @@ const Barangays = () => {
 
   const getUsers = async () => {
     try {
-      const response = await axios.get('https://brgy-scholarship-distribution-system-11.onrender.com/api/users/get-users');
+      const response = await axios.get('http://localhost:5000/api/users/get-users');
       if (response.data.success) {
         console.log(response.data.users);
         setUsers(response.data.users);
@@ -49,9 +49,9 @@ const Barangays = () => {
     e.preventDefault();
     try {
       if (editingUser) {
-        await axios.put(`https://brgy-scholarship-distribution-system-11.onrender.com/api/users/update-user/${editingUser}`, formData);
+        await axios.put(`http://localhost:5000/api/users/update-user/${editingUser}`, formData);
       } else {
-        await axios.post(`https://brgy-scholarship-distribution-system-11.onrender.com/api/users/add-user`, formData);
+        await axios.post(`http://localhost:5000/api/users/add-user`, formData);
       }
   
       // Reset everything after saving
@@ -73,7 +73,7 @@ const Barangays = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`https://brgy-scholarship-distribution-system-11.onrender.com/api/users/delete-user/${id}`);
+      const response = await axios.delete(`http://localhost:5000/api/users/delete-user/${id}`);
       if (response.data.success) {
         getUsers();
       } else {

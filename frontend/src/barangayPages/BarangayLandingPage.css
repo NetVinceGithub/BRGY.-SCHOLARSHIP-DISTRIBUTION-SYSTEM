@@ -1,3 +1,11 @@
-.page-content {
-  padding-top: 80px;
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding:0;
+}
+
+.content-wrap {
+  flex: 1; /* Pushes the footer down */
 }

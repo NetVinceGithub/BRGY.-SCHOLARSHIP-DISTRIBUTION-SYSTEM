@@ -9,12 +9,17 @@ export const addBeneficiary = async (req, res) => {
       gcashName,
       school,
       studentCode,
-      userId // 👈 this comes from the frontend
+      userId 
     } = req.body;
 
     if (!name || !email || !gcashNumber || !gcashName || !school || !studentCode || !userId) {
-      return res.status(400).json({ success: false, message: "There are missing fields" });
+      return res.status(400).json({
+        success: false,
+        message: "There are missing fields",
+        data: { name, email, gcashNumber, gcashName, school, studentCode, userId } // 👈 See what's missing
+      });
     }
+    
 
     const existingBeneficiary = await Beneficiaries.findOne({
       where: { studentCode, userId }
