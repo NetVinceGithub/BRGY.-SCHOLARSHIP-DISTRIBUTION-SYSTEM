@@ -19,27 +19,22 @@ import AuthContext from "./context/authContext";
 function App() {
   return (
     <AuthContext>
-      <Router> 
+      <Router basename="/BRGY.-SCHOLARSHIP-DISTRIBUTION-SYSTEM">
         <Routes>
           <Route path="/login" element={<Login />} />
-          
-          {/* Root path redirects to capitol dashboard */}
+
           <Route path="/" element={<Navigate to="/capitol-dashboard" />} />
 
-          {/* Barangay dashboard and its nested routes */}
           <Route path="/barangay" element={<BarangayDashboard />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="beneficiaries" element={<Beneficiaries />} />
             <Route path="schedule" element={<Schedule />} />
             <Route path="about-us" element={<AboutUs />} />
-            {/* Redirect from /barangay to /barangay/dashboard */}
             <Route index element={<Navigate to="dashboard" />} />
           </Route>
 
-          {/* Move BarangayLandingPage outside to make it public */}
           <Route path="/barangay-landing-page" element={<BarangayLandingPage />} />
 
-          {/* Capitol dashboard and its nested routes */}
           <Route
             path="/capitol-dashboard"
             element={
@@ -59,7 +54,6 @@ function App() {
         </Routes>
       </Router>
     </AuthContext>
-   
   );
 }
 

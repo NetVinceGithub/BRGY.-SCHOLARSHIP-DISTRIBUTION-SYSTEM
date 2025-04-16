@@ -1,7 +1,7 @@
 /* Login.css */
 body {
   font-family: Arial, sans-serif;
-  background: url("../src/barangayPages/batangas-capitol.png") no-repeat center center fixed;
+  background: url("/assets/batangas-capitol.png") no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -32,6 +32,7 @@ input {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  color:black;
 }
 
 button {
@@ -58,4 +59,16 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.input-field {
+  background-color: white;
+}
+
+.error-message {
+  color:black;
+}
+
+label {
+  color:black;
 }
