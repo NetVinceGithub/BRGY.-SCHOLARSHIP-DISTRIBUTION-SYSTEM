@@ -15,6 +15,9 @@ import Dashboard from "./barangayPages/Dashboard";
 import Schedule from "./barangayPages/Schedule";
 import AboutUs from "./barangayPages/AboutUs";
 import AuthContext from "./context/authContext";
+import History from "./capitolPages/History";
+import ScheduleCapitol from "./capitolPages/ScheduleCapitol";
+import Deadline from "./barangayPages/Deadline";
 
 function App() {
   return (
@@ -22,6 +25,7 @@ function App() {
       <Router basename="/BRGY.-SCHOLARSHIP-DISTRIBUTION-SYSTEM">
         <Routes>
           <Route path="/login" element={<Login />} />
+          <Route path="/deadline" element={<Deadline />} />
 
           <Route path="/" element={<Navigate to="/capitol-dashboard" />} />
 
@@ -49,7 +53,8 @@ function App() {
             <Route path="overview" element={<Overview />} />
             <Route path="barangays" element={<Barangays />} />
             <Route path="scholars" element={<Scholars />} />
-            <Route path="information" element={<Information />} />
+            <Route path="schedule" element={<ScheduleCapitol />} />
+            <Route path ="history" element={<History />}/>
           </Route>
         </Routes>
       </Router>

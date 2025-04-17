@@ -31,7 +31,7 @@ const Navbar = () => {
         <ul className={`navbar-links ${isMenuOpen ? 'active' : ''}`}>
           <li><Link to='/' onClick={closeMenu}>Home</Link></li>
           <li><Link to='/about' onClick={closeMenu}>About</Link></li>
-          <li><Link to='/features' onClick={closeMenu}>Features</Link></li>
+          <li><Link to='/deadline' onClick={closeMenu}>Deadline</Link></li>
           <li><Link to='/login' onClick={closeMenu}>Login</Link></li>
         </ul>
       </nav>

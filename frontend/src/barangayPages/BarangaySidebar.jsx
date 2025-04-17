@@ -23,8 +23,6 @@ const BarangaySidebar = () => {
         <NavLink to="/barangay/dashboard" className="sidebar-link">Dashboard</NavLink>
         <NavLink to="/barangay/beneficiaries" className="sidebar-link">Beneficiaries</NavLink>
         <NavLink to="/barangay/schedule" className="sidebar-link">Schedule</NavLink>
-        <NavLink to="/barangay/about-us" className="sidebar-link">About Us</NavLink>
-        <NavLink to="/barangay/landing-page" className="sidebar-link">Landing Page</NavLink>
       </div>
 
       {/* Move logout outside of sidebar-menu */}

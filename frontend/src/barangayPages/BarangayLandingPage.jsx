@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from './Footer';
 import './BarangayLandingPage.css';
 import Body from './Body';
+import Apply from './Apply';
 
 const BarangayLandingPage = () => {
   return (
@@ -11,8 +12,8 @@ const BarangayLandingPage = () => {
       <Navbar />
       <main className="content-wrap">
         <Body />
-        <Outlet /> 
-       
+        <Apply />
+        <Outlet />
       </main>
       <Footer />
     </div>

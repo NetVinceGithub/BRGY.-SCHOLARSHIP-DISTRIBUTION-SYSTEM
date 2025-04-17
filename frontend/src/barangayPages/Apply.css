@@ -1,0 +1,57 @@
+.apply-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top:100px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.section-steps,
+.section-faq {
+  width: 100%;
+  text-align:start;
+}
+.section-steps,.section-faq{
+  background-color: white;
+  border-radius: 10px;
+  padding:5px
+}
+
+.step {
+  margin: 0.5rem 0;
+}
+
+.download-link {
+  color: red;
+  font-weight:bold;
+  text-decoration: none;
+}
+
+.download-link:hover{
+  text-decoration: underline;
+}
+
+.titles .title{
+  color: black; /* Bright blue */
+}
+
+p{
+  color:black;
+}
+
+.question {
+  color:red;
+}
+
+.step {
+  color:black;
+  font-weight: bold;
+  font-size:large;
+}

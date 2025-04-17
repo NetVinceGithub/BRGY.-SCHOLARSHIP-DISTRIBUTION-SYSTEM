@@ -64,6 +64,7 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: black;
 }
 
 .user-table th, .user-table td {
@@ -113,4 +114,15 @@
 .left-container select:focus {
   border-color: #007bff;
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+  }
 }

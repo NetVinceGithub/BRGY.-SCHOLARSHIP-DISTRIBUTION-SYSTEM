@@ -3,9 +3,17 @@
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  padding:0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
+/* Assuming your Navbar component has a height of 80px */
 .content-wrap {
-  flex: 1; /* Pushes the footer down */
+  flex: 1;
+  min-height: 100vh; /* Adjust according to navbar height */
+  position: relative;
+  z-index: 1;
+  border-radius: 12px;
+  padding-top: 800px;
+  padding-bottom: 20px;
 }

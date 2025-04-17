@@ -34,10 +34,8 @@ const Barangays = () => {
   };
 
   const handleEdit = (user) => {
-    // Make sure you're using the correct property for ID
-    // It might be user._id or user.id depending on your backend
     setFormData({...user, password: ''});
-    setEditingUser(user.id); // Ensure this is the correct property
+    setEditingUser(user.id); 
     setIsModalOpen(true);
   };
 
@@ -54,7 +52,6 @@ const Barangays = () => {
         await axios.post(`http://localhost:5000/api/users/add-user`, formData);
       }
   
-      // Reset everything after saving
       setFormData({
         name: '',
         email: '',

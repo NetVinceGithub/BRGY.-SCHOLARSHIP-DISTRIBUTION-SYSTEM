@@ -15,16 +15,14 @@ const Scholars = () => {
     try {
       const response = await axios.get('http://localhost:5000/api/capitol/get-scholars')
       if (response.data.success) {
-        // Ensure scholars data is correctly assigned
         setScholars(response.data.scholars || [])
       } else {
-        // In case success is false, handle accordingly
         console.error('Error fetching scholars', response.data.message)
-        setScholars([]) // Make sure to handle this edge case
+        setScholars([]) 
       }
     } catch (error) {
       console.error('Error fetching scholars', error)
-      setScholars([])  // In case of an error, you can handle this gracefully
+      setScholars([])  
     }
   }
 
