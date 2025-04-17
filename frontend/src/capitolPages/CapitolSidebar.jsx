@@ -22,8 +22,9 @@ const CapitolSidebar = () => {
       <div className="sidebar-menu">
         <NavLink to="/capitol-dashboard/overview" className="sidebar-link">Overview</NavLink>
         <NavLink to="/capitol-dashboard/scholars" className="sidebar-link">Scholars</NavLink>
-        <NavLink to="/capitol-dashboard/information" className="sidebar-link">Information</NavLink>
+        <NavLink to="/capitol-dashboard/history" className="sidebar-link">History</NavLink>
         <NavLink to="/capitol-dashboard/barangays" className="sidebar-link">Barangays</NavLink>
+        <NavLink to="/capitol-dashboard/schedule" className="sidebar-link">Schedule</NavLink>
       </div>
 
       <button onClick={handleLogout} className="logout-btn">

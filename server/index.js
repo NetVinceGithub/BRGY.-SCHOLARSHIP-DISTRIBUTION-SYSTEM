@@ -4,24 +4,45 @@ import dotenv from "dotenv";
 import authRouter from "./routes/auth.js";
 import userRouter from "./routes/users.js";
 import beneficiaryRouter from './routes/beneficiaries.js';
-import sequelize from "./db/db.js"; // Sequelize connection
+import barangayRouter from './routes/barangay.js';
+import capitolRouter from './routes/capitol.js';
+import sequelize from "./db/db.js";
 
-dotenv.config(); // Load environment variables
+dotenv.config(); 
 
-sequelize.sync({ alter: false }) 
+sequelize.sync({ alter: true }) // Modify the schema as needed
   .then(() => console.log("MySQL Database Synced"))
   .catch((err) => console.error("MySQL Connection Error:", err));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true })); 
+// CORS middleware: handle both production (Vercel) and local development (localhost)
+app.use(cors({
+  origin: function (origin, callback) {
+    const allowedOrigins = [
+      'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', // Vercel frontend
+      'http://localhost:5173', // Local development frontend
+    ];
+    // Check if the request's origin matches any allowed origin
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true); // Allow the request
+    } else {
+      callback(new Error('Not allowed by CORS')); // Reject the request
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/beneficiaries", beneficiaryRouter);
+app.use('/api/barangay', barangayRouter);
+app.use('/api/capitol', capitolRouter);
 
 app.get('/test', (req, res) => {
   res.status(200).json({ message: 'Server is working' });
@@ -34,5 +55,4 @@ app.use((req, res, next) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
-
 });

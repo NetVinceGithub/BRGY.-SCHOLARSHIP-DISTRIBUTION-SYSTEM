@@ -1,0 +1,21 @@
+.footer {
+  background-color: #2e3b4e;
+  color: #fff;
+  padding: 1rem 2rem;
+  font-size: 14px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Stack on smaller screens */
+}
+
+.text {
+  margin: 0;
+  padding-right:40px;
+  color:white;
+}

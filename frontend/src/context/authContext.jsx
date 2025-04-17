@@ -43,6 +43,7 @@ const AuthContext = ({ children }) => {
 
   const login = (userData) => {
     setUser(userData);
+    localStorage.setItem('token', userData.token);
   };
 
   const logout = () => {

@@ -1,0 +1,128 @@
+.container {
+  display: flex;
+  gap: 2rem; /* adds space between the two divs */
+  align-items: flex-start; /* align items at the top */
+  justify-content: space-between; /* optional */
+  padding: 20px;
+}
+
+.left-container,
+.right-container {
+  flex: 1;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2); /* semi-transparent */
+  backdrop-filter: blur(10px);          /* blur the background */
+  -webkit-backdrop-filter: blur(10px);  /* for Safari */
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Optional: if you want left side to be narrower */
+.left-container {
+  flex: 1;
+}
+
+.right-container {
+  flex: 2;
+}
+
+
+.user-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.user-card {
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: calc(33.333% - 20px); /* 3 cards per row with 20px gap */
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .user-card {
+    width: calc(50% - 20px); /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .user-card {
+    width: 100%; /* Full width on small screens */
+  }
+}
+
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  color: black;
+}
+
+.user-table th, .user-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table th {
+  background-color: #1B4D3E;
+  color: white;
+}
+
+.user-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.user-button {
+  background-color: black;
+}
+
+.left-container button[type="submit"] {
+  padding: 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.left-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.left-container input,
+.left-container select {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.left-container input:focus,
+.left-container select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left-container,
+  .right-container {
+    width: 100%;
+  }
+}

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Beneficiaries.css';
+import { MdEditNote, MdDelete, MdSearch } from "react-icons/md";
 
 const Beneficiaries = () => {
   const [beneficiaries, setBeneficiaries] = useState([]);
+  const [filteredBeneficiaries, setFilteredBeneficiaries] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
   const [selectedBeneficiary, setSelectedBeneficiary] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState(null);
@@ -12,15 +15,52 @@ const Beneficiaries = () => {
     fetchBeneficiaries();
   }, []);
 
+  useEffect(() => {
+
+    if (searchTerm.trim() === '') {
+      setFilteredBeneficiaries(beneficiaries);
+    } else {
+      const filtered = beneficiaries.filter(beneficiary => 
+        beneficiary.name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        beneficiary.email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        beneficiary.school?.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setFilteredBeneficiaries(filtered);
+    }
+  }, [searchTerm, beneficiaries]);
+
   const fetchBeneficiaries = async () => {
     setError(null);
     try {
-      const response = await axios.get('http://localhost:5000/api/beneficiaries/get-beneficiaries');
-      setBeneficiaries(response.data.message || []);
+      const token = localStorage.getItem('token');
+  
+      // Decode token to get the userId
+      const base64Payload = token.split('.')[1];
+      const decodedPayload = JSON.parse(atob(base64Payload));
+      const userId = decodedPayload.id;
+  
+      const response = await axios.get(
+        `http://localhost:5000/api/beneficiaries/get-beneficiaries?userId=${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+  
+      const beneficiariesData = response.data.message || [];
+      setBeneficiaries(beneficiariesData);
+      setFilteredBeneficiaries(beneficiariesData);
     } catch (error) {
       console.error("Error fetching beneficiaries:", error);
       setError("Failed to load beneficiaries. Please try again later.");
     }
+  };
+  
+  
+
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
   };
 
   const handleEdit = (beneficiary) => {
@@ -56,7 +96,6 @@ const Beneficiaries = () => {
   const handleModalSave = async () => {
     setError(null);
     try {
-      // Check which ID field exists
       const idToUse = selectedBeneficiary.id;
       
       console.log('Saving beneficiary with ID:', idToUse); // Debug info
@@ -66,15 +105,8 @@ const Beneficiaries = () => {
         return;
       }
       
-      // Test the route first with a GET request
-      try {
-        await axios.get(`http://localhost:5000/api/beneficiaries/test-update/${idToUse}`);
-        console.log('Test route is working');
-      } catch (testError) {
-        console.warn('Test route failed:', testError);
-      }
+
       
-      // Proceed with the update
       const response = await axios.put(
         `http://localhost:5000/api/beneficiaries/update/${idToUse}`, 
         selectedBeneficiary
@@ -93,10 +125,45 @@ const Beneficiaries = () => {
     setSelectedBeneficiary({ ...selectedBeneficiary, [e.target.name]: e.target.value });
   };
 
+  const handleTransfer = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const base64Payload = token.split('.')[1];
+      const decodedPayload = JSON.parse(atob(base64Payload));
+      const userId = decodedPayload.id;
+  
+      const res = await axios.post(`http://localhost:5000/api/beneficiaries/transfer-to-capitol?userId=${userId}`, null, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      fetchBeneficiaries();
+    } catch (error) {
+      console.error('Transfer failed:', error);
+      alert('Transfer failed: ' + (error.response?.data?.message || error.message));
+    }
+  };
+  
+
   return (
     <div className="beneficiaries-container">
-      <h2 className="beneficiaries-title">Beneficiaries</h2>
+      <button className="transfer-btn" onClick={handleTransfer}>Transfer</button>
+      
+      <div className="search-container">
+        <div className="search-bar">
+          <MdSearch className="search-icon" />
+          <input 
+            type="text" 
+            placeholder="Search Name" 
+            value={searchTerm}
+            onChange={handleSearchChange}
+          />
+        </div>
+      </div>
+      
       <div className="beneficiaries-table-wrapper">
+        <h2 className="beneficiaries-title">List of Beneficiaries</h2>
+
         <table className="beneficiaries-html-table">
           <thead>
             <tr>
@@ -111,7 +178,7 @@ const Beneficiaries = () => {
             </tr>
           </thead>
           <tbody>
-            {beneficiaries.map((beneficiary, index) => (
+            {filteredBeneficiaries.map((beneficiary, index) => (
               <tr key={index}>
                 <td>{beneficiary.name}</td>
                 <td>{beneficiary.email}</td>
@@ -119,15 +186,14 @@ const Beneficiaries = () => {
                 <td>{beneficiary.studentCode}</td>
                 <td>{beneficiary.gcashNumber}</td>
                 <td>{beneficiary.gcashName}</td>
-                <td><button onClick={() => handleEdit({...beneficiary})}>Edit</button></td>
-                <td><button onClick={() => handleDelete(beneficiary._id || beneficiary.id)}>Delete</button></td>
+                <td><button className="edit-btn" onClick={() => handleEdit({...beneficiary})}><MdEditNote/></button></td>
+                <td><button className="delete-btn" onClick={() => handleDelete(beneficiary._id || beneficiary.id)}><MdDelete/></button></td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
 
-      {/* Edit Modal */}
       {showModal && selectedBeneficiary && (
         <div className="modal-backdrop">
           <div className="modal">

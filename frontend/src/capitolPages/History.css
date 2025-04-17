@@ -1,0 +1,94 @@
+.history-container {
+  backdrop-filter: blur(8px); /* blur effect */
+  background: rgba(255, 255, 255, 0.6);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.history-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #1B4D3E;
+  margin-bottom: 20px;
+}
+
+.history-table-wrapper {
+  background-color: #fff;
+  padding:10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+  color:black;
+}
+
+.history-html-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.history-html-table th,
+.history-html-table td {
+  border: 1px solid #ddd;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.history-html-tableth {
+  color: black;
+}
+
+.history-html-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.history-html-table tr:hover {
+  background-color: #eef7f2;
+}
+
+.history-html-table button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.history-html-table button:hover {
+  color: white;
+}
+
+/* Transfer Button */
+.history-container button {
+  color: black;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  float: right;
+  transition: background-color 0.3s;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .history-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .history-container button {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
