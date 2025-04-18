@@ -10,25 +10,23 @@ import sequelize from "./db/db.js";
 
 dotenv.config(); 
 
-sequelize.sync({ alter: true }) // Modify the schema as needed
+sequelize.sync({ alter: true }) 
   .then(() => console.log("MySQL Database Synced"))
   .catch((err) => console.error("MySQL Connection Error:", err));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// CORS middleware: handle both production (Vercel) and local development (localhost)
 app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
-      'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', // Vercel frontend
-      'http://localhost:5173', // Local development frontend
+      'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', 
+      'http://localhost:5173',
     ];
-    // Check if the request's origin matches any allowed origin
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true); // Allow the request
+      callback(null, true); 
     } else {
-      callback(new Error('Not allowed by CORS')); // Reject the request
+      callback(new Error('Not allowed by CORS')); 
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],

@@ -3,6 +3,7 @@ import Capitol from '../models/Capitol.js';
 import nodemailer from 'nodemailer';
 import History from '../models/History.js';
 import Schedule from '../models/Schedule.js';
+import Barangay from '../models/Barangay.js';
 
 export const transferAllToCapitol = async (req, res) => {
   try {
@@ -183,7 +184,6 @@ export const addSchedule = async (req, res) => {
   }
 };
 
-
 export const getSchedules = async (req,res) => {
   try {
     const schedules = await Schedule.findAll();
@@ -194,5 +194,17 @@ export const getSchedules = async (req,res) => {
     return res.status(200).json({success: true, message: schedules})
   } catch (error) {
     return res.status(500).json({success:false, message: error});
+  }
+}
+
+export const getBarangays = async (req, res) => {
+  try {
+    const response = await Barangay.findAll();
+    if(response.length === 0) {
+      return res.status(404).json({success: false, message: "No barangays in the database"});
+    }
+    return res.status(200).json({success: true, message: response});
+  } catch {
+    return res.status(500).json({success: false, message:error});
   }
 }
