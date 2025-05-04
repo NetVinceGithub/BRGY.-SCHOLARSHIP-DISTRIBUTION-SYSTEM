@@ -22,7 +22,7 @@ import Deadline from "./barangayPages/Deadline";
 function App() {
   return (
     <AuthContext>
-      <Router basename="/BRGY.-SCHOLARSHIP-DISTRIBUTION-SYSTEM">
+      <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/deadline" element={<Deadline />} />
