@@ -30,7 +30,7 @@ const {user} = useAuth();
       console.log("Submitting:", { ...formData, userId: user?.id });
 
       const response = await axios.post(
-        "http://localhost:5000/api/beneficiaries/add-beneficiary",
+        "https://brgy-scholarship-distribution-system-18.onrender.com/api/beneficiaries/add-beneficiary",
         {
           ...formData,
           userId: user?.id, 

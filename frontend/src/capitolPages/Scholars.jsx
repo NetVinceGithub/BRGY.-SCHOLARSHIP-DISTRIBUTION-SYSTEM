@@ -13,7 +13,7 @@ const Scholars = () => {
 
   const fetchScholars = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/capitol/get-scholars')
+      const response = await axios.get('https://brgy-scholarship-distribution-system-18.onrender.com/api/capitol/get-scholars')
       if (response.data.success) {
         setScholars(response.data.scholars || [])
       } else {
@@ -28,7 +28,7 @@ const Scholars = () => {
 
   const handleRelease = async () => {
     try {
-      const res = await axios.post('http://localhost:5000/api/capitol/release-scholarship');
+      const res = await axios.post('https://brgy-scholarship-distribution-system-18.onrender.com/api/capitol/release-scholarship');
     } catch (error) {
       console.error('Error releasing scholar', error)
     }

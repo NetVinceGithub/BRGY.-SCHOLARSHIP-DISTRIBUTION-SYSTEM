@@ -11,7 +11,7 @@ const Overview = () => {
 
   const fetchBarangays = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/capitol/get-barangay');
+      const res = await axios.get('https://brgy-scholarship-distribution-system-18.onrender.com/api/capitol/get-barangay');
       if (res.data.success && Array.isArray(res.data.barangays)) {
         setBarangays(res.data.barangays); // only set if it's a valid array
       } else {

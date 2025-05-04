@@ -40,7 +40,7 @@ const Beneficiaries = () => {
       const userId = decodedPayload.id;
   
       const response = await axios.get(
-        `http://localhost:5000/api/beneficiaries/get-beneficiaries?userId=${userId}`,
+        `https://brgy-scholarship-distribution-system-18.onrender.com/api/beneficiaries/get-beneficiaries?userId=${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -78,7 +78,7 @@ const Beneficiaries = () => {
     if (window.confirm('Are you sure you want to delete this beneficiary?')) {
       setError(null);
       try {
-        await axios.delete(`http://localhost:5000/api/beneficiaries/delete/${id}`);
+        await axios.delete(`https://brgy-scholarship-distribution-system-18.onrender.com/api/beneficiaries/delete/${id}`);
         fetchBeneficiaries(); // Refresh list
       } catch (error) {
         console.error('Delete failed:', error);
@@ -108,7 +108,7 @@ const Beneficiaries = () => {
 
       
       const response = await axios.put(
-        `http://localhost:5000/api/beneficiaries/update/${idToUse}`, 
+        `https://brgy-scholarship-distribution-system-18.onrender.com/api/beneficiaries/update/${idToUse}`, 
         selectedBeneficiary
       );
       
@@ -132,7 +132,7 @@ const Beneficiaries = () => {
       const decodedPayload = JSON.parse(atob(base64Payload));
       const userId = decodedPayload.id;
   
-      const res = await axios.post(`http://localhost:5000/api/beneficiaries/transfer-to-capitol?userId=${userId}`, null, {
+      const res = await axios.post(`https://brgy-scholarship-distribution-system-18.onrender.com/api/beneficiaries/transfer-to-capitol?userId=${userId}`, null, {
         headers: {
           Authorization: `Bearer ${token}`
         }

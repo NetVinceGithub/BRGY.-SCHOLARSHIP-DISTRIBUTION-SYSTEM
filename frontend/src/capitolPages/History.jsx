@@ -12,7 +12,7 @@ const History = () => {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/capitol/get-history');
+      const response = await axios.get('https://brgy-scholarship-distribution-system-18.onrender.com/api/capitol/get-history');
       if (response.data.success) {
         console.log(response.data.data); 
         setHistory(response.data.data);

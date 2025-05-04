@@ -11,7 +11,7 @@ const Schedule = () => {
 
   const fetchSchedules = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/capitol/get-schedules');
+      const response = await axios.get('https://brgy-scholarship-distribution-system-18.onrender.com/api/capitol/get-schedules');
       console.log(response.data);
       setSchedule(response.data.message); // only use the array
     } catch (error) {
