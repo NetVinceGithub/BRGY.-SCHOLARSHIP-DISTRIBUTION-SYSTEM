@@ -18,7 +18,7 @@ const ScheduleCapitol = () => {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent form reload
     try {
-      const response = await axios.post('https://brgy-scholarship-distribution-system-18.onrender.com/api/capitol/add-schedule', formData);
+      const response = await axios.post('https://brgy-scholarship-distribution-system-19.onrender.com/api/capitol/add-schedule', formData);
       console.log(response.data);
       setFormData({ barangay: "", deadline: "" });
     } catch (error) {
