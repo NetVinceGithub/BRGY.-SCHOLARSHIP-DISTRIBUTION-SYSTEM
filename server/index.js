@@ -10,22 +10,25 @@ import sequelize from "./db/db.js";
 
 dotenv.config(); 
 
-sequelize.sync({ alter: true }) 
+sequelize.sync({ alter: true })
   .then(() => console.log("MySQL Database Synced"))
   .catch((err) => console.error("MySQL Connection Error:", err));
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// CORS configuration
 app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
-      'https://brgy-scholarship-distribution-system-ojc8qz51a.vercel.app', 
-      'http://localhost:5173',
+      'https://brgy-scholarship-distribution-system-vfv3.vercel.app', // Replace with correct Vercel URL
+      'http://localhost:5173', // For local development
     ];
+    
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       callback(null, true); 
     } else {
+      console.log(`CORS error: Request from origin ${origin} is not allowed.`);
       callback(new Error('Not allowed by CORS')); 
     }
   },
