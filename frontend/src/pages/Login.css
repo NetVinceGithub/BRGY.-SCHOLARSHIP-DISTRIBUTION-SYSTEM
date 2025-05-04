@@ -18,7 +18,7 @@ body::before {
   bottom: 0;
 
   /* Background image */
-  background: url("/BRGY.-SCHOLARSHIP-DISTRIBUTION-SYSTEM/images/batangas-capitol.png") no-repeat center center;
+  background: url("/images/batangas-capitol.png") no-repeat center center;
   background-size: cover;
 
   /* White overlay with some transparency */
