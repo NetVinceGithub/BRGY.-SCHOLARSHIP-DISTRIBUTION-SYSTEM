@@ -17,12 +17,18 @@ sequelize.sync({ alter: true })
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Logging middleware for debugging
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} from origin: ${req.headers.origin}`);
+  next();
+});
+
 // CORS configuration
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
     const allowedOrigins = [
-      'https://brgy-scholarship-distribution-system-vfv3.vercel.app', // Replace with correct Vercel URL
-      'http://localhost:5173', // For local development
+      'https://brgy-scholarship-distribution-system-vfv3.vercel.app',
+      'http://localhost:5173',
     ];
     
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
@@ -32,9 +38,17 @@ app.use(cors({
       callback(new Error('Not allowed by CORS')); 
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+  credentials: true,
+  maxAge: 86400 // Cache preflight response for 24 hours
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
+// Handle OPTIONS preflight requests
+app.options('*', cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -47,11 +61,6 @@ app.use('/api/capitol', capitolRouter);
 
 app.get('/test', (req, res) => {
   res.status(200).json({ message: 'Server is working' });
-});
-
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
-  next();
 });
 
 app.listen(PORT, () => {
