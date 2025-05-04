@@ -20,4 +20,4 @@ const sequelize = new Sequelize(
   }
 );
 
-export { sequelize };  // Named export
+export default sequelize;  // Default export
