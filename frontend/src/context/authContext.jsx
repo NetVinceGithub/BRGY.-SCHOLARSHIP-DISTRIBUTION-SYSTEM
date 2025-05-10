@@ -14,7 +14,7 @@ const AuthContext = ({ children }) => {
 
         const token = localStorage.getItem('token')
         if (token) {
-        const response = await axios.get('http://localhost:5000/api/auth/verify', {
+        const response = await axios.get('https://brgy-scholarship-distribution-system-19.onrender.com/api/auth/verify', {
           headers:{
             "Authorization" : `Bearer ${token}` 
           },
@@ -43,6 +43,7 @@ const AuthContext = ({ children }) => {
 
   const login = (userData) => {
     setUser(userData);
+    localStorage.setItem('token', userData.token);
   };
 
   const logout = () => {

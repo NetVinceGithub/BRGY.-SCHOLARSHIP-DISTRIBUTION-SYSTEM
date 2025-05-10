@@ -1,62 +1,44 @@
-
+.beneficiaries-container {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
 
 .beneficiaries-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: black;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  color: #1B4D3E;
+  margin-bottom: 20px;
 }
 
 .beneficiaries-table-wrapper {
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  max-width: 100%;     
-  height: auto;
-  overflow-x: hidden; 
-  overflow-y: auto;    
-  width:1100px;
-  margin:auto;
-}
-
-
-.beneficiaries-table {
-  word-wrap: break-word;
-  white-space: normal;
-}
-
-
-/* Optional: Styling the DataTable if using react-data-table-component */
-.rdta-table {
-  border: none;
-}
-
-.rdta-table thead {
-  background-color: #1B4D3E;
-  color: white;
-}
-
-.rdta-table tbody tr:hover {
-  background-color: #eafaf0;
-  cursor: pointer;
+  background-color: #fff;
+  padding:10px;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
 }
 
 .beneficiaries-html-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  font-size: 16px;
 }
 
 .beneficiaries-html-table th,
 .beneficiaries-html-table td {
   border: 1px solid #ddd;
-  padding: 12px;
+  padding: 12px 16px;
   text-align: left;
+  color:black;
 }
 
 .beneficiaries-html-table th {
-  background-color: #f2f2f2;
-  font-weight: bold;
+  color: black;
 }
 
 .beneficiaries-html-table tr:nth-child(even) {
@@ -64,46 +46,184 @@
 }
 
 .beneficiaries-html-table tr:hover {
-  background-color: #eaeaea;
+  background-color: #eef7f2;
 }
 
-.beneficiaries-container {
-  padding-bottom: 100px;
-  height:200px;
-  margin-left:170px;;
-  background: rgba(255, 255, 255, 0.9);
-  width:1200px;
-  border-radius: 12px;
+.beneficiaries-html-table button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
+.beneficiaries-html-table button:hover {
+  color: white;
+}
+
+/* Modal Styles */
 .modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.45);
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
 .modal {
   background: #fff;
-  padding: 20px;
+  padding: 25px;
   width: 400px;
-  border-radius: 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.modal h3 {
+  margin-bottom: 15px;
 }
 
 .modal input {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   width: 100%;
-  padding: 8px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+}
+
+.modal-actions button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  color: black;
+  background-color: forestgreen;
+}
+
+.modal-actions button:last-child {
+  background-color: red;
+}
+
+/* Transfer Button */
+.beneficiaries-container button {
+  color: black;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  float: right;
+  transition: background-color 0.3s;
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .beneficiaries-container {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .modal {
+    width: 90%;
+  }
+
+  .beneficiaries-container button {
+    float: none;
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.transfer-btn {
+  background-color: rgb(4, 105, 4);
+  color: black;
+  width: 100px;
+}
+
+.transfer-btn:hover {
+  background-color: rgb(0, 238, 167);
+  color: black;
+  width: 100px;
+}
+
+button {
+  background-color: #ccc;
+}
+
+.edit-btn:hover {
+  background-color: rgb(29, 29, 241);
+}
+
+.delete-btn:hover {
+  background-color: red;
+}
+
+/* Search Bar Styles */
+.search-container {
+  position: relative;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 0 12px;
+  max-width: 300px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.search-icon {
+  color: #1B4D3E;
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.search-bar input {
+  border: none;
+  background: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  color: #333;
+}
+
+.search-bar input::placeholder {
+  color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .search-container {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .search-bar {
+    max-width: 100%;
+  }
 }

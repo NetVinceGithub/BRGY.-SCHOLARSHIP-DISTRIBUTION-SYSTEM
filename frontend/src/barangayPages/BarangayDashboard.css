@@ -1,0 +1,11 @@
+/* Ensure the whole layout uses flex */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar already has fixed width, we just need to onavbarffset content */
+.dashboard-content {
+  margin-left: 250px; /* same as sidebar width */
+  width: calc(100% - 250px);
+}

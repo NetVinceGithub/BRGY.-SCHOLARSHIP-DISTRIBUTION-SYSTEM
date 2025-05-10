@@ -1,23 +1,47 @@
 /* Login.css */
 body {
   font-family: Arial, sans-serif;
-  background: url("../src/barangayPages/batangas-provincial-hall.jpg") no-repeat center center fixed;
-  background-size: cover;
+  margin: 0;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  margin: 0;
+  position: relative; /* Make sure the pseudo-element is positioned relative to the body */
+}
+
+body::before {
+  content: "";
+  position: fixed; /* Fixed keeps it stable while scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Background image */
+  background: url("/images/batangas-capitol.png") no-repeat center center;
+  background-size: cover;
+
+  /* White overlay with some transparency */
+  background-color: rgba(255, 255, 255, 0.4);
+
+  /* Blend overlay + background image */
+  background-blend-mode: lighten; /* You can try: overlay, multiply, screen, etc. */
+
+  /* Blur effect */
+  filter: blur(8px);
+
+  z-index: -1; /* Ensure it stays behind everything */
 }
 
 
 .login-container {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.9); /* Slight transparency for the login container */
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   width: 350px;
   text-align: center;
+  z-index: 1; /* Ensure the content is above the background */
 }
 
 h2 {
@@ -32,6 +56,7 @@ input {
   margin-bottom: 15px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  color: black;
 }
 
 button {
@@ -58,4 +83,16 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+.input-field {
+  background-color: white;
+}
+
+.error-message {
+  color: black;
+}
+
+label {
+  color: black;
 }

@@ -1,22 +1,25 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
+import { URL } from "url";
 
 dotenv.config();
 
+// Parsing DATABASE_URL
+const parsedUrl = new URL(process.env.DATABASE_URL);
+
 const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USER,
-  process.env.DB_PASS,
+  parsedUrl.pathname.slice(1),
+  parsedUrl.username,
+  parsedUrl.password,
   {
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    dialect: process.env.DB_DIALECT,
+    host: parsedUrl.hostname,
+    port: parsedUrl.port,
+    dialect: "mysql",
     logging: false,
   }
 );
 
-export default sequelize;
-
+// ✅ Add this function
 const connectToDatabase = async () => {
   try {
     await sequelize.authenticate();
@@ -27,12 +30,6 @@ const connectToDatabase = async () => {
   }
 };
 
-// Ensure database exists
-sequelize
-  .query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME};`)
-  .then(() => {
-    console.log("Database checked/created successfully.");
-  })
-  .catch((err) => console.error("Error creating database:", err));
-
+// ✅ Export both default and named
+export default sequelize;
 export { sequelize, connectToDatabase };

@@ -14,49 +14,51 @@ import Beneficiaries from "./barangayPages/Beneficiaries";
 import Dashboard from "./barangayPages/Dashboard";
 import Schedule from "./barangayPages/Schedule";
 import AboutUs from "./barangayPages/AboutUs";
+import AuthContext from "./context/authContext";
+import History from "./capitolPages/History";
+import ScheduleCapitol from "./capitolPages/ScheduleCapitol";
+import Deadline from "./barangayPages/Deadline";
 
 function App() {
   return (
-    <Router> 
-  <Routes>
-    <Route path="/login" element={<Login />} />
-    
-    {/* Root path redirects to capitol dashboard */}
-    <Route path="/" element={<Navigate to="/capitol-dashboard" />} />
+    <AuthContext>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/deadline" element={<Deadline />} />
 
-    {/* Barangay dashboard and its nested routes */}
-    <Route path="/barangay" element={<BarangayDashboard />}>
-      <Route path="dashboard" element={<Dashboard />} />
-      <Route path="beneficiaries" element={<Beneficiaries />} />
-      <Route path="schedule" element={<Schedule />} />
-      <Route path="about-us" element={<AboutUs />} />
-      {/* Redirect from /barangay to /barangay/dashboard */}
-      <Route index element={<Navigate to="dashboard" />} />
-    </Route>
+          <Route path="/" element={<Navigate to="/capitol-dashboard" />} />
 
-    {/* Move BarangayLandingPage outside to make it public */}
-    <Route path="/barangay-landing-page" element={<BarangayLandingPage />} />
+          <Route path="/barangay" element={<BarangayDashboard />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="beneficiaries" element={<Beneficiaries />} />
+            <Route path="schedule" element={<Schedule />} />
+            <Route path="about-us" element={<AboutUs />} />
+            <Route index element={<Navigate to="dashboard" />} />
+          </Route>
 
-    {/* Capitol dashboard and its nested routes */}
-    <Route
-      path="/capitol-dashboard"
-      element={
-        <PrivateRoutes>
-          <RoleBaseRoutes requiredRole={["capitol"]}>
-            <CapitolDashboard />
-          </RoleBaseRoutes>
-        </PrivateRoutes>
-      }
-    >
-      <Route index element={<Overview />} />
-      <Route path="overview" element={<Overview />} />
-      <Route path="barangays" element={<Barangays />} />
-      <Route path="scholars" element={<Scholars />} />
-      <Route path="information" element={<Information />} />
-    </Route>
-  </Routes>
-</Router>
+          <Route path="/barangay-landing-page" element={<BarangayLandingPage />} />
 
+          <Route
+            path="/capitol-dashboard"
+            element={
+              <PrivateRoutes>
+                <RoleBaseRoutes requiredRole={["capitol"]}>
+                  <CapitolDashboard />
+                </RoleBaseRoutes>
+              </PrivateRoutes>
+            }
+          >
+            <Route index element={<Overview />} />
+            <Route path="overview" element={<Overview />} />
+            <Route path="barangays" element={<Barangays />} />
+            <Route path="scholars" element={<Scholars />} />
+            <Route path="schedule" element={<ScheduleCapitol />} />
+            <Route path ="history" element={<History />}/>
+          </Route>
+        </Routes>
+      </Router>
+    </AuthContext>
   );
 }
 
